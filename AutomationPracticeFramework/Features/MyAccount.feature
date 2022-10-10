@@ -12,3 +12,5 @@ Scenario: The user can log in to his account
 
 Scenario: User can create an account
     Given Click on the Sign in link
+	And initia
+	
