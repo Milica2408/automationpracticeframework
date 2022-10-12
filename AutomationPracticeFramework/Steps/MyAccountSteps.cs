@@ -12,12 +12,20 @@ namespace AutomationPracticeFramework.Steps
         Utilities ut = new Utilities(Driver);
         HomePage hp = new HomePage(Driver);
         String username;
+        private readonly PersonData personData;
+
+        public MyAccountSteps(PersonData personData)
+        {
+            
+            this.personData = personData;
+        }
 
         public MyAccountSteps()
         {
             username = ut.GenerateRandomEmail();
         }
-
+        
+       
 
 
         [Given(@"Click on the Sign in link")]
@@ -74,6 +82,7 @@ namespace AutomationPracticeFramework.Steps
             CreateAccount ca = new CreateAccount(Driver);
             ut.EntertextElement(ca.firstname, TestConstants.FirstName);
             ut.EntertextElement(ca.lastname, TestConstants.LastName);
+            personData.FullName = TestConstants.FirstName + " " + TestConstants.LastName;
             ut.EntertextElement(ca.email, username);
             ut.EntertextElement(ca.password, ut.GenerateRandomPassword());
             ut.EntertextElement(ca.address, TestConstants.Address);
@@ -85,7 +94,7 @@ namespace AutomationPracticeFramework.Steps
             ut.DrobdownSelect(ca.country, TestConstants.Country);
             ut.EntertextElement(ca.mobphone, TestConstants.MobilePhone);
             ut.EntertextElement(ca.alias, TestConstants.AddressAlias);
-
+            
 
         }
 
@@ -99,21 +108,18 @@ namespace AutomationPracticeFramework.Steps
         [Then(@"user will be logged in")]
         public void ThenUserWillBeLoggedIn()
         {
-           // Assert.That(
-             //   ut.ReturnTextFromElement(hp.signoutbtn),
-              //  Is.EqualTo(TestConstants.Signout),
-              //  "The user is not logged in"
-              //  );
+            
+             
+             
         }
 
         [Then(@"user's full name is displayed")]
         public void ThenUserSFullNameIsDisplayed()
         {
-           // Assert.That(
-              //  ut.ReturnTextFromElement(hp.fullnamebtn),
-              //  Is.EqualTo(TestConstants.Fullname),
-              //  "The user's full name is not displayed"
-              //  );
+
+            Assert.True(ut.TextPresentInElement(personData.FullName).Displayed, "");
+             
+     
         }
 
     }

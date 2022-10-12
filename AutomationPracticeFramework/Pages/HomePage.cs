@@ -15,8 +15,7 @@ namespace AutomationPracticeFramework.Pages
         public By searchField = By.Id("search_query_top");
         public By searchButton = By.Name("submit_search");
         public By signInlink = By.ClassName("login");
-        public By signoutbtn = By.ClassName("logout");
-        public By fullnamebtn = By.ClassName("account");
+        
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -24,6 +23,13 @@ namespace AutomationPracticeFramework.Pages
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(homepage));
 
 
+        }
+
+        public IList<IWebElement> ReturnCategory(string catName)
+        {
+            By catOption = By.CssSelector(".sf-menu [title='" + catName + "']");
+            IList<IWebElement> category = driver.FindElements(catOption);
+            return category;
         }
 
        

@@ -52,5 +52,20 @@ namespace AutomationPracticeFramework.Helpers
         {
             return driver.FindElement(locator).GetAttribute("textContent");
         }
+
+        public IWebElement TextPresentInElement(string text) 
+        {
+            By textElement = By.XPath("//[contains(text(),'" + text + "')]");
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(textElement));
+        }
+
+        public void ClearInputField(By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).Clear();
+        }
+
+
     }
 }
