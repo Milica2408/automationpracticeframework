@@ -15,6 +15,8 @@ namespace AutomationPracticeFramework.Pages
         public By searchField = By.Id("search_query_top");
         public By searchButton = By.Name("submit_search");
         public By signInlink = By.ClassName("login");
+        public By signoutbtn = By.ClassName("logout");
+        public By fullnamebtn = By.ClassName("account");
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -23,5 +25,8 @@ namespace AutomationPracticeFramework.Pages
 
 
         }
+
+       
+
     }
 }

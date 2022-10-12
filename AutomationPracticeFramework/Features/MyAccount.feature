@@ -12,5 +12,9 @@ Scenario: The user can log in to his account
 
 Scenario: User can create an account
     Given Click on the Sign in link
-	And initia
-	
+	And   In the Create an account section enter the Email adress
+	When  Click on the Create an account button
+	And   Fill in all required fields
+	And   Click on the Register button
+	Then  user will be logged in
+	And   user's full name is displayed

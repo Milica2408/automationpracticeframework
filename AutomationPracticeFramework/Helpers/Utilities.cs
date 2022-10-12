@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace AutomationPracticeFramework.Helpers
@@ -19,6 +20,12 @@ namespace AutomationPracticeFramework.Helpers
         public string GenerateRandomEmail()
         {
             return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));
+        }
+        public string GenerateRandomPassword()
+        {
+            string path = Path.GetRandomFileName();
+            path = path.Replace(".", ""); // Remove period.
+            return path.Substring(0, 8);  // Return 8 character string
         }
         public void ClickOnElement(By locator)
         {

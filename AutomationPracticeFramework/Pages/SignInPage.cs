@@ -15,6 +15,9 @@ namespace AutomationPracticeFramework.Pages
         public By passwordField = By.Id("passwd");
         public By signInBtn = By.Id("SubmitLogin");
         public By authenticationPage = By.Id("authentication");
+        public By email = By.Id("email_create");
+        public By createbutton = By.Id("SubmitCreate");
+
 
 
         public SignInPage(IWebDriver driver)
