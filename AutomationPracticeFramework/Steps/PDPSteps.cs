@@ -1,5 +1,6 @@
 ﻿using AutomationPracticeFramework.Helpers;
 using AutomationPracticeFramework.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
@@ -11,7 +12,7 @@ namespace AutomationPracticeFramework.Steps
 
        
     {
-       HomePage hp = new HomePage(Driver);
+        HomePage hp = new HomePage(Driver);
         Utilities ut = new Utilities(Driver);
 
         private readonly ProductData productData;
@@ -23,7 +24,7 @@ namespace AutomationPracticeFramework.Steps
 
         
 
-    [Given(@"user opens '(.*)' section")]
+        [Given(@"user opens '(.*)' section")]
         public void GivenUserOpensSection(string cat)
         {
            hp.ReturnCategory(cat)[1].Click();
@@ -54,20 +55,26 @@ namespace AutomationPracticeFramework.Steps
         [When(@"user clicks on add to cart button")]
         public void WhenUserClicksOnAddToCartButton()
         {
-            PDPPage pdp = new PDPPage(Driver);
-            ut.ClickOnElement(pdp.addButton);
+            PDPPage pd = new PDPPage(Driver);
+            //By iframe = By.ClassName("fancybox-iframe");
+            //Driver.SwitchTo().Frame(Driver.FindElement(iframe));
+            
+            ut.ClickOnElement(pd.addButton);
         }
         
         [When(@"user proceeds to checkout")]
         public void WhenUserProceedsToCheckout()
         {
-           
+            LayerCartPage lcp = new LayerCartPage(Driver);
+            ut.ClickOnElement(lcp.checkoutbtn);
         }
         
         [Then(@"cart is opened and product is added to cart")]
         public void ThenCartIsOpenedAndProductIsAddedToCart()
         {
-            
+            ShoppingCartPage scp = new ShoppingCartPage(Driver);
+            Assert.That(ut.ReturnTextFromElement(scp.textprdress),
+            Does.Contain(productData.ProductName), "Printed dress product is not in the shopping cart");
         }
     }
 }

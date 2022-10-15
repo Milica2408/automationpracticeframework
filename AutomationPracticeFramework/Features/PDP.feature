@@ -3,7 +3,7 @@
 	As a user
 	I want to be able to interact with product details
 
-@mytag
+	@mytag
 Scenario: User can add product to cart
 	Given user opens 'Dresses' section
 	And opens first product from the list

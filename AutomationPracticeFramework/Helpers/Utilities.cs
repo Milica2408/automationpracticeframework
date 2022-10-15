@@ -53,6 +53,12 @@ namespace AutomationPracticeFramework.Helpers
             return driver.FindElement(locator).GetAttribute("textContent");
         }
 
+
+        public bool ElementDisplayed(By selector)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(selector)).Displayed;
+        }
         public IWebElement TextPresentInElement(string text) 
         {
             By textElement = By.XPath("//[contains(text(),'" + text + "')]");

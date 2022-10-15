@@ -108,8 +108,8 @@ namespace AutomationPracticeFramework.Steps
         [Then(@"user will be logged in")]
         public void ThenUserWillBeLoggedIn()
         {
-            
-             
+            SignInPage sp = new SignInPage(Driver);
+            ut.ElementDisplayed(sp.signoutbtn);
              
         }
 
