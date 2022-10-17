@@ -43,9 +43,10 @@ namespace AutomationPracticeFramework.Steps
         [Given(@"increases quantity to '(.*)'")]
         public void GivenIncreasesQuantityTo(string qty)
         {
-            PDPPage pdp = new PDPPage(Driver);
+            
             By iframe = By.ClassName("fancybox-iframe");
             Driver.SwitchTo().Frame(Driver.FindElement(iframe));
+            PDPPage pdp = new PDPPage(Driver);
             //Driver.FindElement(pdp.quantity).Clear();
             ut.ClearInputField(pdp.quantity);
             ut.EntertextElement(pdp.quantity, qty);

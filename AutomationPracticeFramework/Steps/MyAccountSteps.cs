@@ -13,10 +13,12 @@ namespace AutomationPracticeFramework.Steps
         HomePage hp = new HomePage(Driver);
         String username;
         private readonly PersonData personData;
-
-        public MyAccountSteps(PersonData personData)
+        private readonly WishlistData wishlistData;
+             
+        
+        public MyAccountSteps(PersonData personData, WishlistData wishlistData)
         {
-            
+            this.wishlistData = wishlistData;
             this.personData = personData;
         }
 
@@ -122,6 +124,42 @@ namespace AutomationPracticeFramework.Steps
      
         }
 
+        [When(@"Click on the Mywishlist section")]
+        public void WhenClickOnTheMywishlistSection()
+        {
+            MyAccountPage map = new MyAccountPage(Driver);
+            ut.ClickOnElement(map.wishlistlink);
+        }
+
+
+        [When(@"In the Name field enter random string")]
+        public void WhenInTheNameFieldEnterRandomString()
+        {
+            WishlistPage wlp = new WishlistPage(Driver);
+            wishlistData.WishlistName = ut.GenerateRandomPassword();
+            ut.EntertextElement(wlp.inputname, wishlistData.WishlistName);
+
+        }
+
+
+        [When(@"Click the save button")]
+        public void WhenClickTheSaveButton()
+        {
+            WishlistPage wlp = new WishlistPage(Driver);
+            ut.ClickOnElement(wlp.savebtn);
+            
+        }
+
+        [Then(@"The name of the new list is displayed in the table")]
+        public void ThenTheNameOfTheNewListIsDisplayedInTheTable()
+        {
+            WishlistPage wlp = new WishlistPage(Driver);
+            Assert.That(ut.ReturnTextFromElement(wlp.textname),
+            Does.Contain(wishlistData.WishlistName), "Random string does not exist in the table");
+        }
+
+
     }
+
 }
 

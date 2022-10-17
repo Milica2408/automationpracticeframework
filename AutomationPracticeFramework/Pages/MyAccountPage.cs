@@ -11,6 +11,7 @@ namespace AutomationPracticeFramework.Pages
         readonly IWebDriver driver;
         public By myAccountPage = By.Id("my-account");
         public By successfulLogin = By.ClassName("info-account");
+        public By wishlistlink = By.ClassName("lnk_wishlist");
 
         public MyAccountPage(IWebDriver driver)
         {

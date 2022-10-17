@@ -10,7 +10,7 @@ namespace AutomationPracticeFramework.Pages
     {
         
         readonly IWebDriver driver;
-        public By pdpDialog = By.CssSelector("#category .fancybox-overlay");
+        public By pdpDialog = By.Id("product");
         public By quantity = By.Id("quantity_wanted");
         public By productName = By.XPath("//h1[@itemprop='name']");
         public By addButton = By.Id("add_to_cart");
