@@ -158,6 +158,45 @@ namespace AutomationPracticeFramework.Steps
             Does.Contain(wishlistData.WishlistName), "Random string does not exist in the table");
         }
 
+        [When(@"Click on the My personal information section")]
+        public void WhenClickOnTheMyPersonalInformationSection()
+        {
+            MyAccountPage map = new MyAccountPage(Driver);
+            ut.ClickOnElement(map.mypersonalinformation);
+            
+        }
+
+        [When(@"In the Last name field enter random string")]
+        public void WhenInTheLastNameFieldEnterRandomString()
+        {
+            MyPersonalInformationPage mpip = new MyPersonalInformationPage(Driver);
+            var passwd = "milica2408";
+            
+            personData.LastName = ut.GenerateRandomString();
+            ut.ClearInputField(mpip.lastnameedit);
+            ut.EntertextElement(mpip.currentpasswd, passwd);
+            ut.EntertextElement(mpip.lastnameedit, personData.LastName);
+            
+
+
+        }
+
+        [When(@"Click on the save button")]
+        public void WhenClickOnTheSaveButton()
+        {
+            MyPersonalInformationPage mpip = new MyPersonalInformationPage(Driver);
+            ut.ClickOnElement(mpip.savebutton);
+        }
+
+        [Then(@"Random last name is displayed")]
+        public void ThenRandomLastNameIsDisplayed()
+        {
+           MyPersonalInformationPage mpip = new MyPersonalInformationPage(Driver);
+            Assert.That(ut.ReturnTextFromElement(mpip.newlastname),
+            Does.Contain(personData.LastName), "Random string does not exist in the table");
+        }
+
+
 
     }
 

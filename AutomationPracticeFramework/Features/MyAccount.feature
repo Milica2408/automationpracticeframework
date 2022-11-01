@@ -27,3 +27,13 @@ Scenario: Creating a wishlist
 	  And In the Name field enter random string
 	  And Click the save button
 	 Then The name of the new list is displayed in the table
+
+Scenario: Update Last name
+    Given Click on the Sign in link
+	And Fill in the Email address  with 'predicmilica@gmail.com' and Password 'milica2408'
+	When Click on the Sign in button
+	And Click on the My personal information section
+	And In the Last name field enter random string
+	And Click on the save button
+	Then Random last name is displayed 
+	

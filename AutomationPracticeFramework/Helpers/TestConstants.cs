@@ -6,8 +6,8 @@ namespace AutomationPracticeFramework.Helpers
 {
     public static class TestConstants
     {
-       // public const string Username = "spasojepetronijevic@yahoo.com";
-       // public const string Password = "Kurs2022";
+       
+       
         public const string FirstName = "John";
         public const string LastName = "Smith";
         public const string Address = "228 Park Ave S";
@@ -17,8 +17,7 @@ namespace AutomationPracticeFramework.Helpers
         public const string MobilePhone = "0800555333";
         public const string AddressAlias = "QA kurs";
         public const string State = "New York";
-       // public const string Signout = "Sign out";
-        //public const string Fullname = "John Smith";
+       
 
       
 

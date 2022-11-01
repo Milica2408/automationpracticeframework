@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace AutomationPracticeFramework.Helpers
 {
@@ -20,6 +21,16 @@ namespace AutomationPracticeFramework.Helpers
         public string GenerateRandomEmail()
         {
             return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));
+        }
+
+        
+
+        public  string GenerateRandomString()
+        {
+             Random random = new Random();
+             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 8)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
         public string GenerateRandomPassword()
         {

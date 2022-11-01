@@ -12,6 +12,8 @@ namespace AutomationPracticeFramework.Pages
         public By myAccountPage = By.Id("my-account");
         public By successfulLogin = By.ClassName("info-account");
         public By wishlistlink = By.ClassName("lnk_wishlist");
+        public By mypersonalinformation = By.CssSelector(".col-xs-12 [title = 'Information']");
+        
 
         public MyAccountPage(IWebDriver driver)
         {
