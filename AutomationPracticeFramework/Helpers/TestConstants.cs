@@ -7,7 +7,6 @@ namespace AutomationPracticeFramework.Helpers
     public static class TestConstants
     {
        
-       
         public const string FirstName = "John";
         public const string LastName = "Smith";
         public const string Address = "228 Park Ave S";

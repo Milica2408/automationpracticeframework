@@ -9,7 +9,7 @@ namespace AutomationPracticeFramework.Pages
     class MyPersonalInformationPage
     {
         readonly IWebDriver driver;
-        //public By firstname = By.CssSelector(".form-control#firstname");
+
         public By personalinformation = By.Id("identity");
         public By lastnameedit = By.CssSelector(".is_required#lastname");
         public By savebutton = By.CssSelector(".form-group .button-medium");

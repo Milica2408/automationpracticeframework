@@ -57,9 +57,6 @@ namespace AutomationPracticeFramework.Steps
         public void WhenUserClicksOnAddToCartButton()
         {
             PDPPage pd = new PDPPage(Driver);
-            //By iframe = By.ClassName("fancybox-iframe");
-            //Driver.SwitchTo().Frame(Driver.FindElement(iframe));
-            
             ut.ClickOnElement(pd.addButton);
         }
         

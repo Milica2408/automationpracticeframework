@@ -194,6 +194,7 @@ namespace AutomationPracticeFramework.Steps
            MyPersonalInformationPage mpip = new MyPersonalInformationPage(Driver);
             Assert.That(ut.ReturnTextFromElement(mpip.newlastname),
             Does.Contain(personData.LastName), "Random string does not exist in the table");
+      
         }
 
 
